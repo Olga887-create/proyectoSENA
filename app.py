@@ -5,7 +5,7 @@ import os
 
 
 app = Flask(__name__)
-
+crear_tabla()
 
 @app.route("/")
 def index():

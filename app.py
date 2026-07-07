@@ -87,7 +87,7 @@ def eliminar():
         try:
             conexion = conectar()
             cursor = conexion.cursor()
-            consultar = """ DELETE FROM emleado WHERE identificacion = %S """
+            consultar = """ DELETE FROM emleado WHERE identificacion = %s """
             datos=(doc,)
             cursor.execute(consultar, datos)
             conexion.close()

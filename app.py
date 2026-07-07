@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for
 import psycopg2
-from config import conectar, desconectar
+from config import conectar, desconectar, crear_tabla
 import os 
 
 

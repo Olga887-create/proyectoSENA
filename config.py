@@ -1,29 +1,16 @@
 import psycopg2
+import os
 
-
-def conectar(): 
-    try: 
-        conexion = psycopg2.connect( 
-         user="postgres", 
-         password="12345", 
-         host="localhost", 
-         port="5432", 
-         database="gestion" 
-        )
+def conectar():
+    try:
+        database_url = os.environ.get("DATABASE_URL")
+        conexion = psycopg2.connect(database_url)
         return conexion
-        desconectar(conexion) 
-    except (Exception, psycopg2. Error) as error: 
-      print("Error al conectar a PostgreSQL:", error) 
-      return None
+    except (Exception, psycopg2.Error) as error:
+        print("Error al conectar a PostgreSQL:", error)
+        return None
 
-def desconectar (conexion): 
- if conexion is not None:
-     conexion.close() 
-     print("Conexión a PostgreSQL cerrada")
-
-conexion = conectar() 
-
-if conexion is not None: 
-    print("Conexión a PostgreSQL establecida correctamente")
-else: 
-    print("Error al conectar a PostgreSQL. No se pudo establecer la conexión.")
+def desconectar(conexion):
+    if conexion is not None:
+        conexion.close()
+        print("Conexión a PostgreSQL cerrada")

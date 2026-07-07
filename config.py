@@ -1,5 +1,4 @@
 import psycopg2
-from config import conectar, desconectar, crear_tabla
 import os
 
 def conectar():

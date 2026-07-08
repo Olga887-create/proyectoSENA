@@ -59,12 +59,12 @@ def actualizar_empleado():
     apellido = request.form["apellido"]
     telefono = request.form["telefono"]
     cargo = request.form["cargo"]
-    salario = request.form["sañario"]
+    salario = request.form["salario"]
     try: 
         conexion = conectar()
         cursor = conexion.cursor()
         consultar = """
-        UPDATE compleados SET
+        UPDATE empleados SET
         nombre = %s, apellido =%s, telefono = %s, cargo = %s, salario = %s
         WHERE id = %s;
         """
@@ -87,10 +87,10 @@ def eliminar():
         try:
             conexion = conectar()
             cursor = conexion.cursor()
-            consultar = """ DELETE FROM emleados WHERE identificacion = %s """
+            consultar = """ DELETE FROM empleados WHERE identificacion = %s """
             datos=(doc,)
             cursor.execute(consultar, datos)
-            conexion.close()
+            conexion.commit()
             return "El empleado fue eliminado el empleado correctamente!"
         except (Exception, psycopg2.Error) as error:
             return "Error al eliminar el empleado ",error

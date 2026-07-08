@@ -23,6 +23,13 @@ def registrar():
         try:
             conexion = conectar()
             cursor = conexion.cursor()
+
+            cursor.execute("SELECT id FROM empleados WHERE identificacion = %s", (identificacion,))
+            existe = cursor.fetchone()
+
+            if existe:
+                return "Ya existe un empleado con esa identificacion"
+                
             consulta = """
             INSERT INTO empleados (identificacion, nombre, apellido, telefono, cargo, salario)
             VALUES (%s, %s, %s, %s, %s, %s)

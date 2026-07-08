@@ -4,34 +4,34 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="modalActualizar{{ empleado[0] }}label">Actializar Empleado</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                    <span aria-hidden="true">&tilde;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <from action="/ProyectoSENA/actualizar-empledo" method="post">
+                <form action="/ProyectoSENA/actualizar-empledo" method="post">
                     <input type="hidden" name="id" value="{{ empleado[0] }}">
                     <div class="form-group">
-                        <label for="nombre">Nombre:</labl>
+                        <label for="nombre">Nombre:</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" value="{{ empleado[2] }}">
                     </div>
                     <div class="form-group">
-                        <label for="apellido">Apellido:</labl>
+                        <label for="apellido">Apellido:</label>
                         <input type="text" class="form-control" id="apellido" name="apellido" value="{{ empleado[3] }}">
                     </div>
                     <div class="form-group">
-                        <label for="telefono">Teléfono:</labl>
+                        <label for="telefono">Teléfono:</label>
                         <input type="text" class="form-control" id="telefono" name="telefono" value="{{ empleado[4] }}">
                     </div>
                     <div class="form-group">
-                        <label for="cargo">Cargo:</labl>
+                        <label for="cargo">Cargo:</label>
                         <input type="text" class="form-control" id="cargo" name="cargo" value="{{ empleado[5] }}">
                     </div>
                     <div class="form-group">
-                        <label for="salario">Salario:</labl>
-                        <input type="text" class="form-control" id="salaro" name="salario" value="{{ empleado[6] }}">
+                        <label for="salario">Salario:</label>
+                        <input type="text" class="form-control" id="salario" name="salario" value="{{ empleado[6] }}">
                     </div>
                     <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                </from>
+                </form>
             </div>
         </div>
     </div>
